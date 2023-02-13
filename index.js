@@ -1,5 +1,5 @@
 
-import {createApp} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+//import {createApp} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
 
 const apiUrl = "https://vue3-course-api.hexschool.io/v2";
 const path = "rena";
@@ -68,7 +68,7 @@ const productModal = {
 
 // 1. 取得產品列表 : 
 // products 資料陣列 + methods getProducts() 抓api + mounted this.getProducts 執行
-const app = createApp({
+const app = Vue.createApp({
     data(){
         return {
             products:[],
@@ -148,6 +148,10 @@ const app = createApp({
         },
         onSubmit(){
             console.log('submit')
+        },
+        isPhone(value) {
+            const phoneNumber = /^(09)[0-9]{8}$/
+            return phoneNumber.test(value) ? true : '需要正確的電話號碼'
         }
     },
     components:{  //區域註冊
